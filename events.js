@@ -127,8 +127,9 @@ function canvasDraw(){
 	fieldImage.src = "field.png";
 	console.log('image set up');
 	$('canvas').attr('width', '1000').attr('height', '600');
-	ctx.drawImage(fieldImage, 0, 0, 1000, 600);
-	console.log('canvas draw finished');
+	fieldImage.onload = function(){
+		ctx.drawImage(fieldImage, 0, 0, 1000, 600);
+	}
 }
 
 function login(e){
@@ -136,7 +137,7 @@ function login(e){
 	e.preventDefault();
 	var theName = $('#loginForm').serializeArray();
 	if (theName[0].value == ""){
-		alert("Please Type a Name, Douche.");
+		alert("Please Type a Name, GO!");
 	}
 	else{
 		name = theName.value;
