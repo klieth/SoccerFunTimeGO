@@ -80,8 +80,8 @@ function canvasDraw(){
 	ctx = field.getContext('2d');
 	var fieldImage = new Image();
 	fieldImage.src = "field.png";
-	ctx.drawImage(fieldImage, 0, 0, 340, 220);
-
+	$('canvas').attr('width', '1000').attr('height', '600');
+	ctx.drawImage(fieldImage, 0, 0, 1000, 600);
 }
 
 function login(e){
@@ -99,7 +99,7 @@ function login(e){
 		$("#login").fadeOut(200);
 		$("#header").delay(200).fadeIn(200);
 		$("#field").animate({opacity: '100%'}, 200, 'swing', function() {
-    		$("#field").css('display', 'block'); // or you could use this.css('display', '')
+    		$("#field").css('display', 'block');
 		});
 		canvasDraw();
 	}
