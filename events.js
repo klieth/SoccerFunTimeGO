@@ -5,6 +5,18 @@ $(document).ready(function() {
 	$("#loginbtn").click(function(e){
 		login(e)
 	});
+	var up = 38;
+	var down = 40;
+	var left = 37;
+	var right = 39;
+	$(window).keypress(function(e) {
+       var key = e.which;
+       if (key < 41 && key > 36){
+       		while (key == up){
+
+       		}
+       }
+   });
 });
 function canvasDraw(){
 	field = document.getElementById("field");
@@ -33,7 +45,7 @@ function login(e){
 	
 }
 function submitCharacter(){
-	submit(name);
+	addUser(name);
 }
 /*
 while(true){
