@@ -98,7 +98,9 @@ function login(e){
 		$("#login").slideUp();
 		$("#login").fadeOut(200);
 		$("#header").delay(200).fadeIn(200);
-		$("#field").delay(200).fadeIn(200);
+		$("#field").animate({opacity: '100%'}, 200, 'swing', function() {
+    		$("#field").css('display', 'block'); // or you could use this.css('display', '')
+		});
 		canvasDraw();
 	}
 	playGame();
