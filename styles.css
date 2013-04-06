@@ -3,8 +3,25 @@
 	width:100%;
 	background-color:#1240ab;
 }
+#login{
+	height:100%;
+	width:100%;
+	background-color:#fff;
+}
+#login form{
+	margin-top:300px;
+	margin-bottom:auto;
+	margin-left:auto;
+	margin-right:auto;
+	height:50px;
+	width:400px;
+}
 #field{
 	width:1200px;
 	height:800px;
-	margin: 0 auto;
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
