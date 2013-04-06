@@ -127,8 +127,8 @@ function canvasDraw(){
 	ctx = field.getContext('2d');
 	var fieldImage = new Image();
 	fieldImage.src = "field.png";
+	$('canvas').attr('width', '1000').attr('height', '600');
 	fieldImage.onload = function(){
-		$('canvas').attr('width', '1000').attr('height', '600');
 		ctx.drawImage(fieldImage, 0, 0, 1000, 600);
 	}
 }
