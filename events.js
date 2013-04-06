@@ -2,27 +2,35 @@ var name;
 var field;
 var ctx;
 $(document).ready(function() {
-	canvasDraw();
+	$("#loginbtn").click(function(e){
+		login(e)
+	});
 });
 function canvasDraw(){
 	field = document.getElementById("field");
 	ctx = field.getContext('2d');
 	var fieldImage = new Image();
 	fieldImage.src = "field.png";
-	ctx.drawImage(fieldImage, 0, 0);
+	ctx.drawImage(fieldImage, 0, 0, 1200, 800);
 }
 function login(e){
 	e.stopPropagation();
 	e.preventDefault();
-	var theName = $('#login').serializeJSON();
-	console.log(theName);
-	if (theName.name == "")
+	var theName = $('#loginForm').serializeArray();
+	console.log(theName[0].value);
+	if (theName[0].value == ""){
 		alert("Please Type a Name, Douche.");
+	}
 	else{
-		name = theName.name;
+		name = theName.value;
 		submitCharacter();
 		$("#login").slideUp();
+		$("#login").fadeOut(200);
+		$("#header").delay(200).fadeIn(200);
+		$("#field").delay(200).fadeIn(200);
+		canvasDraw();
 	}
+	
 }
 function submitCharacter(){
 	submit(name);

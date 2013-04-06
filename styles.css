@@ -2,12 +2,12 @@
 	height:145px;
 	width:100%;
 	background-color:#1240ab;
+	display:none;
 }
 #login{
 	height:100%;
 	width:100%;
 	background-color:#fff;
-	float:left;
 }
 #login form{
 	margin-top:300px;
@@ -24,5 +24,5 @@
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    display: none;
 }
