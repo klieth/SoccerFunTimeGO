@@ -5,6 +5,12 @@
  * teamsize -- returns the size of each team
  */
 
+/**
+ * player has:
+ * 		id
+ * 		x, y
+ * 		direction
+ */
 
 
 //
