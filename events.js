@@ -10,7 +10,7 @@ $(document).ready(function() {
 	var down = 40;
 	var left = 37;
 	var right = 39;
-	$(window).keypress(function(e) {
+	$(window).keydown(function(e) {
        var key = e.which;
        if (key < 41 && key > 36){
        		while (key == up){
@@ -37,7 +37,7 @@ function canvasDraw(){
 	ctx = field.getContext('2d');
 	var fieldImage = new Image();
 	fieldImage.src = "field.png";
-	ctx.drawImage(fieldImage, 0, 0, 1200, 800);
+	ctx.drawImage(fieldImage, 0, 0, 340, 220);
 }
 function login(e){
 	e.stopPropagation();

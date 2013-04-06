@@ -2,6 +2,8 @@
 	height:145px;
 	width:100%;
 	background-color:#1240ab;
+	background: #000 url("header.png") 50% no-repeat;
+	background-size:70% 145px;
 	display:none;
 }
 #login{
@@ -19,7 +21,7 @@
 }
 #field{
 	width:1200px;
-	height:800px;
+	height:700px;
 	padding-left: 0;
     padding-right: 0;
     margin-left: auto;
