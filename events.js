@@ -127,8 +127,10 @@ function canvasDraw(){
 	ctx = field.getContext('2d');
 	var fieldImage = new Image();
 	fieldImage.src = "field.png";
-	$('canvas').attr('width', '1000').attr('height', '600');
-	ctx.drawImage(fieldImage, 0, 0, 1000, 600);
+	fieldImage.onload = function(){
+		$('canvas').attr('width', '1000').attr('height', '600');
+		ctx.drawImage(fieldImage, 0, 0, 1000, 600);
+	}
 }
 
 function login(e){
@@ -137,7 +139,7 @@ function login(e){
 	var theName = $('#loginForm').serializeArray();
 	console.log(theName[0].value);
 	if (theName[0].value == ""){
-		alert("Please Type a Name, Douche.");
+		alert("Please Type a Name, GO!");
 	}
 	else{
 		name = theName.value;
