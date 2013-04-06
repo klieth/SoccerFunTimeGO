@@ -72,21 +72,17 @@ function playGame() {
 			if (found != null) {
 				found.x = item.x;
 				found.y = item.y;
-				console.log("updating");
 			} else {
 				var newPlayer = new Player();
 				newPlayer.name = item.id;
 				newPlayer.x = item.x;
 				newPlayer.y = item.y;
 				red.push(newPlayer);
-				console.log("creating");
 			}
-			console.log(item);
 		});
 		$.each(json.blue, function(i, item) {
 			var found = null;
 			$.each(blue, function(j, p) {
-				console.log(p);
 				if (item.id == p.name) {
 					found = p;
 					return;
@@ -95,16 +91,13 @@ function playGame() {
 			if (found != null) {
 				found.x = item.x;
 				found.y = item.y;
-				console.log("updating");
 			} else {
 				var newPlayer = new Player();
 				newPlayer.name = item.id;
 				newPlayer.x = item.x;
 				newPlayer.y = item.y;
 				blue.push(newPlayer);
-				console.log("creating");
 			}
-			console.log(item);
 		});
 		// update all positions
 		// draw to screen
