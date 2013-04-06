@@ -1,6 +1,7 @@
 var name;
 var field;
 var ctx;
+var delta = 20;
 $(document).ready(function() {
 	$("#loginbtn").click(function(e){
 		login(e)
@@ -13,7 +14,20 @@ $(document).ready(function() {
        var key = e.which;
        if (key < 41 && key > 36){
        		while (key == up){
-
+       			$.delay(200);
+       			Player.y = Player.y - delta;
+       		}
+       		while (key == down){
+       			$.delay(200);
+       			Player.y = Player.y + delta;
+       		}
+       		while (key == left){
+       			$.delay(200);
+       			Player.y = Player.x - delta;
+       		}
+       		while (key == right){
+       			$.delay(200);
+       			Player.y = Player.x + delta;
        		}
        }
    });
@@ -69,5 +83,5 @@ function Player() {
 	var name;
 	var x;
 	var y;
-	var dir;
+	var action;
 }
