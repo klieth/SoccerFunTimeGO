@@ -1,7 +1,17 @@
+
 var name;
+var delta = 20;
+var me = new Player();
+var players = new Array();
+
 var field;
 var ctx;
-var delta = 20;
+
+var upPressed = false;
+var downPressed = false;
+var rightPressed = false;
+var leftPressed = false;
+
 $(document).ready(function() {
 	$("#loginbtn").click(function(e){
 		login(e)
@@ -10,57 +20,44 @@ $(document).ready(function() {
 	var down = 40;
 	var left = 37;
 	var right = 39;
-	$(window).keypress(function(e) {
+	$(window).keydown(function(e) {
        var key = e.which;
-       if (key < 41 && key > 36){
-       		while (key == up){
-       			$.delay(200);
-       			Player.y = Player.y - delta;
-       		}
-       		while (key == down){
-       			$.delay(200);
-       			Player.y = Player.y + delta;
-       		}
-       		while (key == left){
-       			$.delay(200);
-       			Player.y = Player.x - delta;
-       		}
-       		while (key == right){
-       			$.delay(200);
-       			Player.y = Player.x + delta;
-       		}
-       }
+	   if (key == up) {
+		   upPressed = true;
+	   } else if (key == down) {
+		   downPressed = true;
+	   } else if (key == right) {
+		   rightPressed = true;
+	   } else if (key == left) {
+		   leftPressed = true;
+	   }
+   });
+	$(window).keyup(function(e) {
+       var key = e.which;
+	   if (key == up) {
+		   upPressed = false;
+	   } else if (key == down) {
+		   downPressed = false;
+	   } else if (key == right) {
+		   rightPressed = false;
+	   } else if (key == left) {
+		   leftPressed = false;
+	   }
    });
 });
-function canvasDraw(){
-	field = document.getElementById("field");
-	ctx = field.getContext('2d');
-	var fieldImage = new Image();
-	fieldImage.src = "field.png";
-	ctx.drawImage(fieldImage, 0, 0, 1200, 800);
-}
-function login(e){
-	e.stopPropagation();
-	e.preventDefault();
-	var theName = $('#loginForm').serializeArray();
-	console.log(theName[0].value);
-	if (theName[0].value == ""){
-		alert("Please Type a Name, Douche.");
+
+function playGame() {
+	while (true) {
+		// get data
+		var json = getDrawData();
+		$.each(json, function(i, item) {
+			console.log(item);
+		});
+		// update all positions
+		// draw to screen
 	}
-	else{
-		name = theName.value;
-		submitCharacter();
-		$("#login").slideUp();
-		$("#login").fadeOut(200);
-		$("#header").delay(200).fadeIn(200);
-		$("#field").delay(200).fadeIn(200);
-		canvasDraw();
-	}
-	
 }
-function submitCharacter(){
-	addUser(name);
-}
+
 /*
 while(true){
 	//fetch
@@ -78,10 +75,46 @@ while(true){
 }
 */
 
+function canvasDraw(){
+	field = document.getElementById("field");
+	ctx = field.getContext('2d');
+	var fieldImage = new Image();
+	fieldImage.src = "field.png";
+	ctx.drawImage(fieldImage, 0, 0, 300, 200);
+}
+
+function login(e){
+	e.stopPropagation();
+	e.preventDefault();
+	var theName = $('#loginForm').serializeArray();
+	console.log(theName[0].value);
+	if (theName[0].value == ""){
+		alert("Please Type a Name, Douche.");
+	}
+	else{
+		name = theName.value;
+		addUser(name);
+		$("#login").slideUp();
+		$("#login").fadeOut(200);
+		$("#header").delay(200).fadeIn(200);
+		$("#field").delay(200).fadeIn(200);
+		canvasDraw();
+	}
+	playGame();
+	
+}
+
 
 function Player() {
 	var name;
 	var x;
 	var y;
 	var action;
+	var dir;
+}
+
+function Ball() {
+	var x;
+	var y;
+	var dir;
 }
