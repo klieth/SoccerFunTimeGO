@@ -1,10 +1,10 @@
 #header{
 	height:145px;
 	width:100%;
-	background-color:#1240ab;
-	background: #000 url("header.png") 50% no-repeat;
+	background: #339b00 url("header.png") 50% no-repeat;
 	background-size:70% 145px;
 	display:none;
+	margin-bottom:10px;
 }
 #login{
 	height:100%;
