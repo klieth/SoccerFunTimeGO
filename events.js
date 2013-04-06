@@ -2,7 +2,9 @@
 var name;
 var delta = 20;
 var me = new Player();
-var players = new Array();
+var ball = new Ball();
+var red = new Array();
+var blue = new Array();
 
 var field;
 var ctx;
@@ -13,9 +15,7 @@ var rightPressed = false;
 var leftPressed = false;
 
 $(document).ready(function() {
-	$("#loginbtn").click(function(e){
-		login(e)
-	});
+	$("#loginForm").submit(login);
 	var up = 38;
 	var down = 40;
 	var left = 37;
@@ -49,12 +49,66 @@ $(document).ready(function() {
 function playGame() {
 	while (true) {
 		// get data
-		var json = getDrawData();
-		$.each(json, function(i, item) {
+		// var json = getDrawData();
+		console.log("start");
+		var json = {
+			ball:{x:3,y:4},
+				red:[{id:"one",x:5,y:5,dir:90,action:"run"},{id:"two",x:12,y:2,dir:270,action:"run"}],
+				blue:[{id:"two",x:6,y:6,dir:180,action:"run"}]
+		};
+		console.log("updating ball");
+		ball.x = json.ball.x;
+		ball.y = json.ball.y;
+		console.log("updated");
+		$.each(json.red, function(i, item) {
+			var found = null;
+			$.each(red, function(j, p) {
+				console.log(p);
+				if (item.id == p.name) {
+					found = p;
+					return;
+				}
+			});
+			if (found != null) {
+				found.x = item.x;
+				found.y = item.y;
+				console.log("updating");
+			} else {
+				var newPlayer = new Player();
+				newPlayer.name = item.id;
+				newPlayer.x = item.x;
+				newPlayer.y = item.y;
+				red.push(newPlayer);
+				console.log("creating");
+			}
+			console.log(item);
+		});
+		$.each(json.blue, function(i, item) {
+			var found = null;
+			$.each(blue, function(j, p) {
+				console.log(p);
+				if (item.id == p.name) {
+					found = p;
+					return;
+				}
+			});
+			if (found != null) {
+				found.x = item.x;
+				found.y = item.y;
+				console.log("updating");
+			} else {
+				var newPlayer = new Player();
+				newPlayer.name = item.id;
+				newPlayer.x = item.x;
+				newPlayer.y = item.y;
+				blue.push(newPlayer);
+				console.log("creating");
+			}
 			console.log(item);
 		});
 		// update all positions
 		// draw to screen
+		return;
 	}
 }
 
