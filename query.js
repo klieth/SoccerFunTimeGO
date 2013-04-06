@@ -18,7 +18,7 @@
 //
 function sendPosition(newX, newY) {
 	$.ajax({
-		url:"soccerfuntimego.mattcorallo.com/game",
+		url:"http://soccerfuntimego.mattcorallo.com/game",
 		data:{
 			x: newX,
 			y: newY
@@ -61,7 +61,7 @@ function getTeamCounts() {
 
 function getWrapper(command) {
 	$.ajax({
-		url:"soccerfuntimego.mattcorallo.com/game",
+		url:"http://soccerfuntimego.mattcorallo.com/game",
 		data:{
 			cmd:command
 		},

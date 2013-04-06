@@ -7,6 +7,7 @@
 	height:100%;
 	width:100%;
 	background-color:#fff;
+	float:left;
 }
 #login form{
 	margin-top:300px;
