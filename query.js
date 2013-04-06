@@ -28,7 +28,12 @@ function addUser(id) {
 			cmd: "adduser",
 			name: id
 		},
-		type: 'POST'
+		type: 'POST',
+		statusCode: {
+			503: function() {
+				console.log("Server is currently down.");
+			}
+		}
 	}).done(function() {
 		console.log("User added");
 	});
@@ -45,7 +50,12 @@ function sendPosition(newX, newY) {
 			x: newX,
 			y: newY
 		},
-		type:'POST'
+		type:'POST',
+		statusCode: {
+			503: function() {
+				console.log("Server is currently down.");
+			}
+		}
 	}).done(function() {});
 }
 
@@ -87,8 +97,13 @@ function getWrapper(command) {
 		data:{
 			cmd:command
 		},
-		type:'get'
-	}).done(function(text) {
-		return text;
+		type:'GET',
+		statusCode: {
+			503: function() {
+				console.log("Server is currently down.");
+			}
+		}
+	}).done(function() {
+		console.log("Request completed");
 	});
 }
