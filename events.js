@@ -51,3 +51,11 @@ while(true){
 	});
 }
 */
+
+
+function Player() {
+	var name;
+	var x;
+	var y;
+	var dir;
+}
