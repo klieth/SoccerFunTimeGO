@@ -50,20 +50,16 @@ function playGame() {
 	while (true) {
 		// get data
 		// var json = getDrawData();
-		console.log("start");
 		var json = {
 			ball:{x:3,y:4},
 				red:[{id:"one",x:5,y:5,dir:90,action:"run"},{id:"two",x:12,y:2,dir:270,action:"run"}],
 				blue:[{id:"two",x:6,y:6,dir:180,action:"run"}]
 		};
-		console.log("updating ball");
 		ball.x = json.ball.x;
 		ball.y = json.ball.y;
-		console.log("updated");
 		$.each(json.red, function(i, item) {
 			var found = null;
 			$.each(red, function(j, p) {
-				console.log(p);
 				if (item.id == p.name) {
 					found = p;
 					return;
@@ -123,19 +119,22 @@ while(true){
 */
 
 function canvasDraw(){
+	console.log('canvas draw started');
 	field = document.getElementById("field");
 	ctx = field.getContext('2d');
+	console.log('canvas set up');
 	var fieldImage = new Image();
 	fieldImage.src = "field.png";
+	console.log('image set up');
 	$('canvas').attr('width', '1000').attr('height', '600');
 	ctx.drawImage(fieldImage, 0, 0, 1000, 600);
+	console.log('canvas draw finished');
 }
 
 function login(e){
 	e.stopPropagation();
 	e.preventDefault();
 	var theName = $('#loginForm').serializeArray();
-	console.log(theName[0].value);
 	if (theName[0].value == ""){
 		alert("Please Type a Name, Douche.");
 	}
