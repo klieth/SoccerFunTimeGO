@@ -216,7 +216,8 @@ function Player() {
 	this.updatePosition = function() {
 		sendPosition(this.x,this.y);
 	}
-	this.updateAction = function() {
+	this.updateAction = function(act) {
+		this.action = act;
 		sendPlayerActionUpdate(this.action);
 	}
 }
