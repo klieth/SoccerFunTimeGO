@@ -13,6 +13,7 @@ var upPressed = false;
 var downPressed = false;
 var rightPressed = false;
 var leftPressed = false;
+var spacePressed = false;
 
 $(document).ready(function() {
 	$("#loginForm").submit(login);
@@ -20,6 +21,7 @@ $(document).ready(function() {
 	var down = 40;
 	var left = 37;
 	var right = 39;
+	var space = 32;
 	$(window).keydown(function(e) {
        var key = e.which;
 	   if (key == up) {
@@ -30,6 +32,8 @@ $(document).ready(function() {
 		   rightPressed = true;
 	   } else if (key == left) {
 		   leftPressed = true;
+	   } else if (key == space) {
+		   spacePressed = true;
 	   }
    });
 	$(window).keyup(function(e) {
@@ -42,6 +46,8 @@ $(document).ready(function() {
 		   rightPressed = false;
 	   } else if (key == left) {  
 		   leftPressed = false;
+	   } else if (key == space) {
+		   spacePressed = false;
 	   }
    });
 });
@@ -114,6 +120,9 @@ function move() {
 	} else {
 		me.action = "stand";
 		sendAction(me.action);
+	}
+	if (spacePressed) {
+		sendKick();
 	}
 	this.dir = -1;
 	//console.log(me);
