@@ -125,8 +125,8 @@ function getDrawData() {
 		var json = eval( '(' + data + ')');
 		red = new Array();
 		blue = new Array();
-		ball.x = json.ball.x;
-		ball.y = json.ball.y;
+		ball.x = json.ball.X;
+		ball.y = json.ball.Y;
 		$.each(json.players, function(i, p) {
 			var player = new Player();
 			player.name = p.Name;

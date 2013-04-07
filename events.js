@@ -46,13 +46,8 @@ $(document).ready(function() {
 function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
-	// get data
-	//getDrawData();
-	//console.log(blue);
 	$.each(red,function(index,value){
-		console.log(value.action);
 		if (value.action == "run") {
-			//console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
 			ctx.drawImage(images.red_standing, value.x, value.y);
@@ -82,7 +77,6 @@ function move() {
 		me.action = "stand";
 		sendAction(me.action);
 	}
-	console.log(me);
 	if (downPressed) {
 		if(me.y < 570){
 			//console.log("down pressed");
