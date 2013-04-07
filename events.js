@@ -3,6 +3,7 @@ var name;
 var delta = 12;
 var animateRate = 33.3333333333;
 var moveInterval = 200;
+var ballRate = 500;
 var me = new Player();
 
 var field;
@@ -46,7 +47,6 @@ $(document).ready(function() {
 });
 
 function animate() {
-	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	var estamt = delta/(moveInterval/animateRate);
 	$.each(red,function(index,value){
@@ -100,7 +100,9 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-		ctx.drawImage(images.ball, ball.x, ball.y);
+	ball.x += ball.dx * (ballRate/animateRate);
+	ball.y += ball.dy * (ballRate/animateRate);
+	ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
 function move() {
