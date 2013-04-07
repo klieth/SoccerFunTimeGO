@@ -43,7 +43,7 @@ $(document).ready(function() {
    });
 });
 
-function playGame() {
+function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	// get data
@@ -72,6 +72,9 @@ function playGame() {
 	});
 	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
 
+}
+
+function move() {
 	if (downPressed) {
 		if(me.y < 570){
 			//console.log("down pressed");
@@ -164,8 +167,9 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(playGame,100);
-		setInterval(getDrawData,300);
+		setInterval(animate,50);
+		setInterval(move,100);
+		setInterval(getDrawData,200);
 	});
 }
 
