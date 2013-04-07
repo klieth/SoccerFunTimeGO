@@ -20,13 +20,6 @@
  * 		action
  */
 
-/**
- * Nort 1
- * south 0
- * west 2
- * east 3
- */
-
 var gameurl = "http://soccerfuntimego.mattcorallo.com/game";
 
 //
