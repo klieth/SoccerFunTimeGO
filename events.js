@@ -52,7 +52,7 @@ function playGame() {
 		if (value.action == "run") {
 			console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
-		} else if (value.action == "stand") {
+		} else if (value.action == "stand") {log
 			ctx.drawImage(images.red_standing, value.x, value.y);
 		} else if (value.action == "kick") {
 			ctx.drawImage(images.red_kicking, value.x, value.y);
@@ -99,7 +99,7 @@ function playGame() {
 		}	
 	}
 	if (rightPressed) {
-		if(me.x < 1000){
+		if(me.x < 980){
 			//console.log("left pressed");
 			me.x = me.x + 3;
 			me.dir = 2;
