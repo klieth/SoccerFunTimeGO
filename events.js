@@ -1,6 +1,8 @@
 
 var name;
 var delta = 12;
+var animateRate = 33.3333333333;
+var moveInterval = 200;
 var me = new Player();
 
 var field;
@@ -46,7 +48,7 @@ $(document).ready(function() {
 function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
-	var estamt = delta/6;
+	var estamt = delta/(moveInterval/animateRate);
 	$.each(red,function(index,value){
 		console.log(value.dir);
 		if (value.dir != -1){
@@ -220,8 +222,8 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(animate,33.333333333333333333333333333333333333);
-		setInterval(move,200);
+		setInterval(animate,animateRate);
+		setInterval(move,moveInterval);
 		//setInterval(getDrawData,200);
 	});
 }
