@@ -80,6 +80,7 @@ function sendPosition(newX, newY, newDir, action) {
 		data = eval("(" + data + ")");
 		me.x = data.X;
 		me.y = data.Y;
+		me.action = data.action;
 	});
 }
 
