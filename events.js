@@ -150,8 +150,12 @@ function login(e){
 		});
 		canvasDraw();
 	}
+	preload();
 	playGame();
 	
+}
+
+function preload() {
 }
 
 
