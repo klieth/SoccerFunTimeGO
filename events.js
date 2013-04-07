@@ -71,7 +71,9 @@ function animate() {
 			}
 		}
 
-		if (value.action == "run") {
+		if (value.fireball) {
+			ctx.drawImage(images.kaboom, value.x, value.y);
+		} if (value.action == "run") {
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
 			ctx.drawImage(images.red_standing, value.x, value.y);
@@ -210,7 +212,8 @@ function preload() {
 		"red_standing",
 		"blue_standing",
 		"red_kicking",
-		"blue_kicking"
+		"blue_kicking",
+		"kaboom"
 	];
 	$.each(imagenames, function(i, imgName) {
 		var pxImg = new PxLoaderImage(imgName + ".png");
