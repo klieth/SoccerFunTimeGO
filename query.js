@@ -149,8 +149,8 @@ function getDrawData() {
 				blue.push(player);
 			}
 		});
-		redScore = json.score.TeamAScore;
-		blueScore = json.score.TeamBScore;
+		redScore = json.score.TeamBScore;
+		blueScore = json.score.TeamAScore;
 	});
 }
 
