@@ -50,6 +50,7 @@ function animate() {
 	//getDrawData();
 	//console.log(blue);
 	$.each(red,function(index,value){
+		console.log(value.action);
 		if (value.action == "run") {
 			//console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
