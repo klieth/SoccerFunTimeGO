@@ -60,7 +60,7 @@ function addUser(id) {
 //
 // Sends the x and the y position to the url
 //
-function sendPosition(newX, newY, newDir) {
+function sendPosition(newX, newY, newDir, action) {
 	$.ajax({
 		url:gameurl,
 		data:{
