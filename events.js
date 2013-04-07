@@ -181,22 +181,27 @@ function canvasDraw(){
 function login(e){
 	e.stopPropagation();
 	e.preventDefault();
-	var theName = $('#loginForm').serializeArray();
-	if (theName[0].value == ""){
-		alert("Please Type a Name, GO!");
+	var cookie = getCookie("Player");
+	if (cookie == null){
+		var theName = $('#loginForm').serializeArray();
+		if (theName[0].value == ""){
+			alert("Please Type a Name, GO!");
+		}
+		else{
+			name = theName[0].value;
+			addUser(name);
+			$("#login").slideUp();
+			$("#login").fadeOut(200);
+			$("#header").delay(200).fadeIn(200);
+			$("#field").animate({opacity: '100%'}, 200, 'swing', function() {
+	    		$("#field").css('display', 'block');
+			});
+			canvasDraw();
+		}
+		preload();
+	} else {
+		
 	}
-	else{
-		name = theName[0].value;
-		addUser(name);
-		$("#login").slideUp();
-		$("#login").fadeOut(200);
-		$("#header").delay(200).fadeIn(200);
-		$("#field").animate({opacity: '100%'}, 200, 'swing', function() {
-    		$("#field").css('display', 'block');
-		});
-		canvasDraw();
-	}
-	preload();
 	
 }
 
