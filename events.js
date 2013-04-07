@@ -1,6 +1,6 @@
 
 var name;
-var delta = 6;
+var delta = 12;
 var me = new Player();
 
 var field;
@@ -46,7 +46,7 @@ $(document).ready(function() {
 function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
-	var estamt = 1;
+	var estamt = delta/6;
 	$.each(red,function(index,value){
 		console.log(value.dir);
 		if (value.dir != -1){
@@ -98,7 +98,6 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-	if (ball.VelocityX)
 		ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
