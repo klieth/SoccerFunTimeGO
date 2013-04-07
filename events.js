@@ -59,7 +59,7 @@ function animate() {
 			value.x -= estamt;
 		}
 		if (value.dir == 8 || value.dir == 0 || value.dir == 1){
-			value.y -= estmt;
+			value.y -= estamt;
 		}
 
 		if (value.action == "run") {
@@ -83,7 +83,7 @@ function animate() {
 			value.x -= estamt;
 		}
 		if (value.dir == 8 || value.dir == 0 || value.dir == 1){
-			value.y -= estmt;
+			value.y -= estamt;
 		}
 		if (value.action == "run") {
 			ctx.drawImage(images.blue_running, value.x, value.y);
