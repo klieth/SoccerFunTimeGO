@@ -2,9 +2,6 @@
 var name;
 var delta = 20;
 var me = new Player();
-var ball = new Ball();
-var red = new Array();
-var blue = new Array();
 
 var field;
 var ctx;
@@ -47,99 +44,34 @@ $(document).ready(function() {
 });
 
 function playGame() {
-	console.log('images set up');
 	
-	while (true) {
-		// get data
-		// var json = getDrawData();
-		var json = {
-			ball:{x:3,y:4},
-				red:[{id:"one",x:5,y:5,dir:90,action:"run"},{id:"two",x:12,y:2,dir:270,action:"run"}],
-				blue:[{id:"two",x:6,y:6,dir:180,action:"run"}]
-		};
-		ball.x = json.ball.x;
-		ball.y = json.ball.y;
-		$.each(json.red, function(i, item) {
-			var found = null;
-			$.each(red, function(j, p) {
-				if (item.id == p.name) {
-					found = p;
-					return;
-				}
-			});
-			if (found != null) {
-				found.x = item.x;
-				found.y = item.y;
-			} else {
-				var newPlayer = new Player();
-				newPlayer.name = item.id;
-				newPlayer.x = item.x;
-				newPlayer.y = item.y;
-				red.push(newPlayer);
-			}
-		});
-		$.each(json.blue, function(i, item) {
-			var found = null;
-			$.each(blue, function(j, p) {
-				if (item.id == p.name) {
-					found = p;
-					return;
-				}
-			});
-			if (found != null) {
-				found.x = item.x;
-				found.y = item.y;
-			} else {
-				var newPlayer = new Player();
-				newPlayer.name = item.id;
-				newPlayer.x = item.x;
-				newPlayer.y = item.y;
-				blue.push(newPlayer);
-			}
-		});
-		
-		$.each(json.red,function(index,value){
-			if (value.action == "run"){
-				console.log(images['red_running']);
-				ctx.drawImage(images.red_running, value.x, value.y);
-			}
-			else if (value.action == "stand")
-				ctx.drawImage(images.red_standing, value.x, value.y);
-			else if (value.action == "kick")
-				ctx.drawImage(images.red_kicking, value.x, value.y);
-			ctx.fillText(value.id,value.x,value.y-10);
-		});
-		$.each(json.blue,function(index,value){
-			if (value.action == "run")
-				ctx.drawImage(images.blue_running, value.x, value.y);
-			else if (value.action == "stand")
-				ctx.drawImage(images.blue_standing, value.x, value.y);
-			else if (value.action == "kick")
-				ctx.drawImage(images.blue_kicking, value.x, value.y);
-			ctx.fillText(value.id,value.x,value.y-10);
-		});
-		// update all positions
-		// draw to screen
-		return;
+	// get data
+	getDrawData();
+
+	$.each(red,function(index,value){
+		if (value.action == "run")
+		ctx.drawImage(images.red_running, value.x, value.y);
+		else if (value.action == "stand")
+		ctx.drawImage(images.red_standing, value.x, value.y);
+		else if (value.action == "kick")
+		ctx.drawImage(images.red_kicking, value.x, value.y);
+	ctx.fillText(value.id,value.x,value.y-10);
+	});
+	$.each(blue,function(index,value){
+		if (value.action == "run")
+		ctx.drawImage(images.blue_running, value.x, value.y);
+		else if (value.action == "stand")
+		ctx.drawImage(images.blue_standing, value.x, value.y);
+		else if (value.action == "kick")
+		ctx.drawImage(images.blue_kicking, value.x, value.y);
+	ctx.fillText(value.id,value.x,value.y-10);
+	});
+	if (downPressed) {
+		console.log("down pressed");
+		//me.y += 3;
+		//me.updatePosition();
 	}
 }
-
-/*
-while(true){
-	//fetch
-	$json = getDrawData();
-	//draw
-	ctx.drawImage("ball.png",$json.ball.x, $json.ball.y);
-	$.each($json.red,function(index,value){
-		ctx.drawImage("red_" + value.action + ".png", value.x, value.y);
-		ctx.fillText(value.id,x,y);
-	});
-	$.each($json.blue,function(index,value){
-		ctx.drawImage("blue_" + value.action + ".png", value.x, value.y);
-		ctx.fillText(value.id,x,y);
-	});
-}
-*/
 
 function canvasDraw(){
 	console.log('canvas draw started');
@@ -202,28 +134,8 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		playGame();
+		setInterval(playGame,1000);
 	});
 }
 
 
-function Player() {
-	var name;
-	var x;
-	var y;
-	var action;
-	var dir;
-	this.updatePosition = function() {
-		sendPosition(this.x,this.y);
-	}
-	this.updateAction = function(act) {
-		this.action = act;
-		sendPlayerActionUpdate(this.action);
-	}
-}
-
-function Ball() {
-	var x;
-	var y;
-	var dir;
-}
