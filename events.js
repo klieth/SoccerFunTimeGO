@@ -165,8 +165,8 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(playGame,10);
-		setInterval(getDrawData,30);
+		setInterval(playGame,50);
+		setInterval(getDrawData,150);
 	});
 }
 
