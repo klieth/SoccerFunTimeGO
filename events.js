@@ -53,7 +53,7 @@ function playGame() {
 	//console.log(blue);
 	$.each(red,function(index,value){
 		if (value.action == "run") {
-			console.log("Red running");
+			//console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
 			ctx.drawImage(images.red_standing, value.x, value.y);
@@ -107,7 +107,6 @@ function playGame() {
 		}	
 	}
 	me.updatePosition();
-
 }
 
 function canvasDraw(){
@@ -166,8 +165,8 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(playGame,100);
-		setInterval(getDrawData,300);
+		setInterval(playGame,10);
+		setInterval(getDrawData,30);
 	});
 }
 
