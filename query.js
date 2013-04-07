@@ -18,12 +18,14 @@
  * 		direction
  */
 
+var gameurl = "http://soccerfuntimego.mattcorallo.com/game";
+
 //
 //
 //
 function addUser(id) {
 	$.ajax({
-		url:"http://soccerfuntimego.mattcorallo.com/game",
+		url:gameurl,
 		data: {
 			cmd: "adduser",
 			name: id
@@ -44,7 +46,7 @@ function addUser(id) {
 //
 function sendPosition(newX, newY) {
 	$.ajax({
-		url:"http://soccerfuntimego.mattcorallo.com/game",
+		url:gameurl,
 		data:{
 			cmd:"pos",
 			x: newX,
@@ -59,6 +61,19 @@ function sendPosition(newX, newY) {
 	}).done(function() {});
 }
 
+//
+//
+//
+function sendAction(act) {
+	$.ajax({
+		url:gameurl,
+		data: {
+			cmd:"action",
+			action: act
+		},
+		type:'POST'
+	}).done(function() {});
+}
 
 
 //

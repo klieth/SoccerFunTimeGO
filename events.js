@@ -213,6 +213,12 @@ function Player() {
 	var y;
 	var action;
 	var dir;
+	this.updatePosition = function() {
+		sendPosition(this.x,this.y);
+	}
+	this.updateAction = function() {
+		sendPlayerActionUpdate(this.action);
+	}
 }
 
 function Ball() {
