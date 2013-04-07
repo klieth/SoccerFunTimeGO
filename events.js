@@ -109,7 +109,7 @@ function animate() {
 	ball.x += ball.dx / ballRate;
 	ball.y += ball.dy / ballRate;
 	ctx.drawImage(images.ball, ball.x, ball.y);
-	ctx.fillText("SCORE: " + redScore + ":" + blueScore, 400, 40);
+	ctx.fillText("SCORE: "   + redScore + "---" + blueScore, 400, 50);
 }
 
 function move() {
@@ -173,7 +173,7 @@ function canvasDraw(){
 	field = document.getElementById("field");
 	ctx = field.getContext('2d');
 	$('canvas').attr('width', '1000').attr('height', '600');
-	ctx.font="30pt Arial";
+	ctx.font="20pt Arial";
 }
 
 function login(e){
