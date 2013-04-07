@@ -1,9 +1,9 @@
 
 var name;
 var delta = 12;
-var animateRate = 33.3333333333;
+var animateRate = 50;
 var moveInterval = 200;
-var ballRate = 500;
+var ballRate = 4;
 var me = new Player();
 
 var field;
@@ -100,8 +100,10 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-	ball.x += ball.dx * ((2*animateRate)/ballRate);
-	ball.y += ball.dy * ((2*animateRate)/ballRate);
+	//ball.x += ball.dx * (animateRate/ballRate);
+	//ball.y += ball.dy * (animateRate/ballRate);
+	ball.x += ball.dx / ballRate;
+	ball.y += ball.dy / ballRate;
 	ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
@@ -226,7 +228,6 @@ function preload() {
 	loader.addCompletionListener(function(e) {
 		setInterval(animate,animateRate);
 		setInterval(move,moveInterval);
-		//setInterval(getDrawData,200);
 	});
 }
 
