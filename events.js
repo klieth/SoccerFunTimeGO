@@ -81,11 +81,29 @@ function playGame() {
 	}
 	if (upPressed) {
 		if(me.y > 0){
-			console.log("down pressed");
+			console.log("up pressed");
 			me.y = me.y - 3;
 			me.dir = 1;
 			me.updatePosition();
 			console.log(me.y);
+		}	
+	}
+	if (rightPressed) {
+		if(me.x > 0){
+			console.log("right pressed");
+			me.x = me.x - 3;
+			me.dir = 3;
+			me.updatePosition();
+			console.log(me.x);
+		}	
+	}
+	if (rightPressed) {
+		if(me.x < 100){
+			console.log("left pressed");
+			me.x = me.x + 3;
+			me.dir = 2;
+			me.updatePosition();
+			console.log(me.x);
 		}	
 	}
 }
