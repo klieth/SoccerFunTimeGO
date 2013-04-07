@@ -48,12 +48,12 @@ function playGame() {
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	// get data
 	//getDrawData();
-	console.log(blue);
+	//console.log(blue);
 	$.each(red,function(index,value){
 		if (value.action == "run") {
 			console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
-		} else if (value.action == "stand") {
+		} else if (value.action == "stand") {log
 			ctx.drawImage(images.red_standing, value.x, value.y);
 		} else if (value.action == "kick") {
 			ctx.drawImage(images.red_kicking, value.x, value.y);
@@ -71,42 +71,40 @@ function playGame() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
+
 	if (downPressed) {
 		if(me.y < 570){
-			console.log("down pressed");
+			//console.log("down pressed");
 			me.y = me.y + 3;
 			me.dir = 0;
-			me.updatePosition();
-			console.log(me.y);
+			//console.log(me.y);
 		}
 	}
 	if (upPressed) {
 		if(me.y > 0){
-			console.log("up pressed");
+			//console.log("up pressed");
 			me.y = me.y - 3;
 			me.dir = 1;
-			me.updatePosition();
-			console.log(me.y);
+			//console.log(me.y);
 		}	
 	}
 	if (leftPressed) {
 		if(me.x > 0){
-			console.log("right pressed");
+			//console.log("right pressed");
 			me.x = me.x - 3;
 			me.dir = 3;
-			me.updatePosition();
-			console.log(me.x);
+			//console.log(me.x);
 		}	
 	}
 	if (rightPressed) {
-		if(me.x < 1000){
-			console.log("left pressed");
+		if(me.x < 980){
+			//console.log("left pressed");
 			me.x = me.x + 3;
 			me.dir = 2;
-			me.updatePosition();
-			console.log(me.x);
+			//console.log(me.x);
 		}	
 	}
+	me.updatePosition();
 
 }
 
