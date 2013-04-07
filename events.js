@@ -48,6 +48,7 @@ function animate() {
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	var estamt = 10;
 	$.each(red,function(index,value){
+		console.log(estamt);
 		if (value.dir == 2) {
 			value.x += estamt;
 		}
@@ -61,6 +62,7 @@ function animate() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	$.each(blue,function(index,value){
+		console.log(estamt);
 		if (value.dir == 6) {
 			value.x -= estamt;
 		}
