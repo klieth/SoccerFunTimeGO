@@ -20,7 +20,9 @@ $(document).ready(function() {
 
 function animate() {
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
-	if (value.action == "run") {
+	var estamt = delta/(moveInterval/animateRate);
+	$.each(red,function(index,value){
+		if (value.action == "run") {
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
 			ctx.drawImage(images.red_standing, value.x, value.y);
@@ -30,6 +32,7 @@ function animate() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	$.each(blue,function(index,value){
+		//console.log(value.dir);
 		if (value.action == "run") {
 			ctx.drawImage(images.blue_running, value.x, value.y);
 		} else if (value.action == "stand") {
