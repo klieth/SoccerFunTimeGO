@@ -16,6 +16,7 @@
  * 		id
  * 		x, y
  * 		direction
+ * 		action
  */
 
 var gameurl = "http://soccerfuntimego.mattcorallo.com/game";
