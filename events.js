@@ -100,8 +100,8 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-	ball.x += ball.dx * (2*animateRate)/ballRate);
-	ball.y += ball.dy * (2*animateRate)/ballRate);
+	ball.x += ball.dx * ((2*animateRate)/ballRate);
+	ball.y += ball.dy * ((2*animateRate)/ballRate);
 	ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
