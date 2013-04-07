@@ -130,6 +130,7 @@ function getDrawData() {
 			player.y = p.Y;
 			player.action = p.Action;
 			player.dir = p.Direction;
+			console.log(player.dir);
 			if (p.OnTeamA == false) {
 				red.push(player);
 			} else {
