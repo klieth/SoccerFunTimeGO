@@ -90,9 +90,11 @@ function move() {
 			me.y = me.y + 3;
 			me.dir = 4;
 			if (leftPressed){
+				me.x = me.x - 3;
 				me.dir++;
 			}
 			else if (rightPressed){
+				me.x = me.x + 3;
 				me.dir--;
 			}
 			//console.log(me.y);
@@ -104,9 +106,11 @@ function move() {
 			me.y = me.y - 3;
 			me.dir = 0;
 			if (rightPressed){
+				me.x = me.x + 3;
 				me.dir++;
 			}
 			else if (leftPressed){
+				me.x = me.x - 3;
 				me.dir = 7;
 			}
 			//console.log(me.y);
