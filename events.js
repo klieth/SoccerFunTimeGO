@@ -18,8 +18,6 @@ $(document).ready(function() {
 	var left = 37;
 	var right = 39;
 	$(window).keydown(function(e) {
-		me.action = "run";
-		sendAction(me.action);
        var key = e.which;
 	   if (key == up) {
 		   upPressed = true;
@@ -32,8 +30,6 @@ $(document).ready(function() {
 	   }
    });
 	$(window).keyup(function(e) {
-		me.action = "stand";
-		sendAction(me.action);
        var key = e.which;
 	   if (key == up) {
 		   upPressed = false;
@@ -41,7 +37,7 @@ $(document).ready(function() {
 		   downPressed = false;
 	   } else if (key == right) {
 		   rightPressed = false;
-	   } else if (key == left) {
+	   } else if (key == left) {  
 		   leftPressed = false;
 	   }
    });
@@ -54,6 +50,7 @@ function animate() {
 	//getDrawData();
 	//console.log(blue);
 	$.each(red,function(index,value){
+		console.log(value.action);
 		if (value.action == "run") {
 			//console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
@@ -74,10 +71,18 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
+	ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
 function move() {
+	if (downPressed || upPressed || rightPressed || leftPressed){
+		me.action = "run";
+		sendAction(me.action);
+	} else {
+		me.action = "stand";
+		sendAction(me.action);
+	}
+	console.log(me);
 	if (downPressed) {
 		if(me.y < 570){
 			//console.log("down pressed");
