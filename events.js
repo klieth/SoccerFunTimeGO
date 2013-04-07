@@ -18,8 +18,6 @@ $(document).ready(function() {
 	var left = 37;
 	var right = 39;
 	$(window).keydown(function(e) {
-		me.action = "run";
-		sendAction(me.action);
        var key = e.which;
 	   if (key == up) {
 		   upPressed = true;
@@ -32,8 +30,6 @@ $(document).ready(function() {
 	   }
    });
 	$(window).keyup(function(e) {
-		me.action = "stand";
-		sendAction(me.action);
        var key = e.which;
 	   if (key == up) {
 		   upPressed = false;
@@ -78,6 +74,13 @@ function animate() {
 }
 
 function move() {
+	if (downPressed || upPressed || rightPressed || leftPressed){
+		me.action = "run";
+		sendAction(me.action);
+	} else {
+		me.action = "stand";
+		sendAction(me.action);
+	}
 	if (downPressed) {
 		if(me.y < 570){
 			//console.log("down pressed");
