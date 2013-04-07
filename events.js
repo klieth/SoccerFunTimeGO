@@ -49,7 +49,7 @@ function animate() {
 	var estamt = 1;
 	$.each(red,function(index,value){
 		//console.log(value.dir);
-		if (rightPressed) {
+		if (value.dir == 2) {
 			value.x += estamt;
 		}
 		if (value.action == "run") {
@@ -63,7 +63,7 @@ function animate() {
 	});
 	$.each(blue,function(index,value){
 		//console.log(value.dir);
-		if (leftPressed) {
+		if (value.dir == 6) {
 			value.x -= estamt;
 		}
 		if (value.action == "run") {
