@@ -47,6 +47,15 @@ function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	$.each(red,function(index,value){
+		if (value.dir == 0) {
+			value.y += 1;
+		} else if (value.dir == 1) {
+			value.y -= 1;
+		} else if (value.dir == 2) {
+			value.x -= 1;
+		} else if (value.dir == 3) {
+			value.x += 1;
+		}
 		if (value.action == "run") {
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
@@ -57,6 +66,15 @@ function animate() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	$.each(blue,function(index,value){
+		if (value.dir == 0) {
+			value.y += 1;
+		} else if (value.dir == 1) {
+			value.y -= 1;
+		} else if (value.dir == 2) {
+			value.x -= 1;
+		} else if (value.dir == 3) {
+			value.x += 1;
+		}
 		if (value.action == "run") {
 			ctx.drawImage(images.blue_running, value.x, value.y);
 		} else if (value.action == "stand") {

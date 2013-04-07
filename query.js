@@ -127,6 +127,8 @@ function getDrawData() {
 		blue = new Array();
 		ball.x = json.ball.X;
 		ball.y = json.ball.Y;
+		ball.dx = json.ball.VelocityX;
+		ball.dy = json.ball.VelocityY;
 		$.each(json.players, function(i, p) {
 			var player = new Player();
 			player.name = p.Name;
@@ -178,9 +180,10 @@ function Player() {
 }
 
 function Ball() {
-	var x = 500;
-	var y = 300;
-	this.dir;
+	this.x = 500;
+	this.y = 300;
+	this.dx;
+	this.dy;
 }
 
 
