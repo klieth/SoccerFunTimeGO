@@ -47,7 +47,7 @@ function playGame() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	// get data
-	getDrawData();
+	//getDrawData();
 	console.log(blue);
 	$.each(red,function(index,value){
 		if (value.action == "run") {
@@ -167,6 +167,7 @@ function preload() {
 	loader.start();
 	loader.addCompletionListener(function(e) {
 		setInterval(playGame,100);
+		setInterval(getDrawData,300);
 	});
 }
 
