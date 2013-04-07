@@ -82,12 +82,21 @@ function move() {
 		me.action = "stand";
 		sendAction(me.action);
 	}
-	console.log(me);
+	this.dir = -1;
+	//console.log(me);
 	if (downPressed) {
 		if(me.y < 570){
 			//console.log("down pressed");
 			me.y = me.y + 3;
-			me.dir = 0;
+			me.dir = 4;
+			if (leftPressed){
+				me.dir++;
+				me.fe = false;
+			}
+			else if (rightPressed){
+				me.dir--;
+				me.fe = true;
+			}
 			//console.log(me.y);
 		}
 	}
@@ -95,19 +104,29 @@ function move() {
 		if(me.y > 0){
 			//console.log("up pressed");
 			me.y = me.y - 3;
-			me.dir = 1;
+			me.dir = 0;
+			if (rightPressed){
+				me.fe = true;
+				me.dir++;
+			}
+			else if (leftPressed){
+				me.dir = 9;
+				me.fe = false;
+			}
 			//console.log(me.y);
 		}	
 	}
-	if (leftPressed) {
+	if (leftPressed && this.dir != -1) {
+		me.fe = false;
 		if(me.x > 0){
 			//console.log("right pressed");
 			me.x = me.x - 3;
-			me.dir = 3;
+			me.dir = 6;
 			//console.log(me.x);
 		}	
 	}
-	if (rightPressed) {
+	if (rightPressed && this.dir != -1) {
+		me.fe = true;
 		if(me.x < 980){
 			//console.log("left pressed");
 			me.x = me.x + 3;
