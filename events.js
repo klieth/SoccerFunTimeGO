@@ -174,7 +174,6 @@ function login(e){
 		canvasDraw();
 	}
 	preload();
-	playGame();
 	
 }
 
@@ -202,6 +201,9 @@ function preload() {
 		console.log("Loaded image number " + e.completedCount);
 	});
 	loader.start();
+	loader.addCompletionListener(function(e) {
+		playGame();
+	});
 }
 
 
