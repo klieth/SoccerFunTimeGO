@@ -37,7 +37,7 @@ $(document).ready(function() {
 		   downPressed = false;
 	   } else if (key == right) {
 		   rightPressed = false;
-	   } else if (key == left) {
+	   } else if (key == left) {  
 		   leftPressed = false;
 	   }
    });
@@ -70,7 +70,7 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
+	ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
 function move() {
@@ -81,6 +81,7 @@ function move() {
 		me.action = "stand";
 		sendAction(me.action);
 	}
+	console.log(me);
 	if (downPressed) {
 		if(me.y < 570){
 			//console.log("down pressed");
