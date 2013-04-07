@@ -148,14 +148,7 @@ function canvasDraw(){
 	$('canvas').attr('width', '1000').attr('height', '600');
 }
 
-function login(e){
-	e.stopPropagation();
-	e.preventDefault();
-	var theName = $('#loginForm').serializeArray();
-	if (theName[0].value == ""){
-		alert("Please Type a Name, GO!");
-	}
-	else{
+function login(){
 		name = theName[0].value;
 		addUser(name);
 		$("#login").slideUp();
@@ -165,7 +158,6 @@ function login(e){
     		$("#field").css('display', 'block');
 		});
 		canvasDraw();
-	}
 	preload();
 	
 }
