@@ -46,12 +46,22 @@ $(document).ready(function() {
 function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
-	var estamt = 10;
+	var estamt = 1;
 	$.each(red,function(index,value){
-		console.log(value.dir);
-		if (value.dir == 2) {
+		//console.log(value.dir);
+		if (value.dir == 2 || value.dir == 1 || value.dir || 3) {
 			value.x += estamt;
+		} 
+		if (value.dir == 4 || value.dir == 5 || value.dir == 6){
+			value.y += estamt;
 		}
+		if (value.dir == 6 || value.dir == 7 || value.dir == 8){
+			value.x -= estamt;
+		}
+		if (value.dir == 8 || value.dir == 0 || value.dir == 1){
+			value.y -= estmt;
+		}
+
 		if (value.action == "run") {
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
@@ -62,9 +72,18 @@ function animate() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	$.each(blue,function(index,value){
-		console.log(value.dir);
-		if (value.dir == 6) {
+		//console.log(value.dir);
+		if (value.dir == 2 || value.dir == 1 || value.dir || 3) {
+			value.x += estamt;
+		} 
+		if (value.dir == 4 || value.dir == 5 || value.dir == 6){
+			value.y += estamt;
+		}
+		if (value.dir == 6 || value.dir == 7 || value.dir == 8){
 			value.x -= estamt;
+		}
+		if (value.dir == 8 || value.dir == 0 || value.dir == 1){
+			value.y -= estmt;
 		}
 		if (value.action == "run") {
 			ctx.drawImage(images.blue_running, value.x, value.y);
