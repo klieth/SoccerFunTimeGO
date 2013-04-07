@@ -74,6 +74,7 @@ function sendPosition(newX, newY, newDir) {
 		me.x = data.X;
 		me.y = data.Y;
 		me.action = data.Action;
+		getDrawData();
 	});
 }
 

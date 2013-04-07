@@ -220,9 +220,9 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(animate,33);
+		setInterval(animate,33.333333333333333333333333333333333333);
 		setInterval(move,200);
-		setInterval(getDrawData,200);
+		//setInterval(getDrawData,200);
 	});
 }
 
