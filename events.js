@@ -189,7 +189,7 @@ function login(e){
 	}
 	else{
 		name = theName[0].value;
-		addUser(name.replace(" ","_").substr(0,6));
+		addUser(name.replace(" ","_").substr(0,9));
 		$("#header_logo").slideUp();
 		$("#login").slideUp();
 		$("#login").fadeOut(200);
