@@ -72,8 +72,6 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-	ball.x += ball.dx * (ballRate/animateRate);
-	ball.y += ball.dy * (ballRate/animateRate);
 	ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
