@@ -149,8 +149,6 @@ function canvasDraw(){
 }
 
 function login(){
-		name = theName[0].value;
-		addUser(name);
 		$("#login").slideUp();
 		$("#login").fadeOut(200);
 		$("#header").delay(200).fadeIn(200);
