@@ -76,7 +76,6 @@ function playGame() {
 			//console.log("down pressed");
 			me.y = me.y + 3;
 			me.dir = 0;
-			me.updatePosition();
 			//console.log(me.y);
 		}
 	}
@@ -85,7 +84,6 @@ function playGame() {
 			//console.log("up pressed");
 			me.y = me.y - 3;
 			me.dir = 1;
-			me.updatePosition();
 			//console.log(me.y);
 		}	
 	}
@@ -94,7 +92,6 @@ function playGame() {
 			//console.log("right pressed");
 			me.x = me.x - 3;
 			me.dir = 3;
-			me.updatePosition();
 			//console.log(me.x);
 		}	
 	}
@@ -103,10 +100,10 @@ function playGame() {
 			//console.log("left pressed");
 			me.x = me.x + 3;
 			me.dir = 2;
-			me.updatePosition();
 			//console.log(me.x);
 		}	
 	}
+	me.updatePosition();
 
 }
 
