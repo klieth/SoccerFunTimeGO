@@ -60,7 +60,7 @@ function addUser(id) {
 //
 // Sends the x and the y position to the url
 //
-function sendPosition(newX, newY, newDir) {
+function sendPosition(newX, newY, newDir, action) {
 	$.ajax({
 		url:gameurl,
 		data:{
@@ -76,7 +76,7 @@ function sendPosition(newX, newY, newDir) {
 			}
 		}
 	}).done(function(data) {
-		console.log(data);
+		//console.log(data);
 		data = eval("(" + data + ")");
 		me.x = data.X;
 		me.y = data.Y;
@@ -149,6 +149,7 @@ function getTeamCounts() {
 		url:gameurl,
 		data:{
 			cmd:"teamsize"
+
 		},
 		type:'GET'
 	}).done(function(data) {

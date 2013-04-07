@@ -18,6 +18,8 @@ $(document).ready(function() {
 	var left = 37;
 	var right = 39;
 	$(window).keydown(function(e) {
+		me.action = "run";
+		sendAction(me.action);
        var key = e.which;
 	   if (key == up) {
 		   upPressed = true;
@@ -30,6 +32,8 @@ $(document).ready(function() {
 	   }
    });
 	$(window).keyup(function(e) {
+		me.action = "stand";
+		sendAction(me.action);
        var key = e.which;
 	   if (key == up) {
 		   upPressed = false;
@@ -51,7 +55,7 @@ function animate() {
 	//console.log(blue);
 	$.each(red,function(index,value){
 		if (value.action == "run") {
-			console.log("Red running");
+			//console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
 			ctx.drawImage(images.red_standing, value.x, value.y);
@@ -108,7 +112,6 @@ function move() {
 		}	
 	}
 	me.updatePosition();
-
 }
 
 function canvasDraw(){
