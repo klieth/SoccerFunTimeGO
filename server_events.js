@@ -85,6 +85,7 @@ function canvasDraw(){
 	ctx = field.getContext('2d');
 	console.log('canvas set up');
 	$('canvas').attr('width', '1000').attr('height', '600');
+	ctx.font="15pt Arial";
 }
 
 function login(){
