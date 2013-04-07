@@ -60,14 +60,14 @@ function addUser(id) {
 //
 // Sends the x and the y position to the url
 //
-function sendPosition(newX, newY) {
+function sendPosition(newX, newY, newdir) {
 	$.ajax({
 		url:gameurl,
 		data:{
 			cmd:"pos",
 			x: newX,
 			y: newY,
-			dir: 0
+			dir: newDir
 		},
 		type:'POST',
 		statusCode: {
@@ -166,7 +166,7 @@ function Player() {
 	this.dir;
 	this.updatePosition = function() {
 		//sendPosition(this.x,this.y);
-		sendPosition(1,0);
+		sendPosition(this.x, this.y, this.dir);
 	}
 	this.updateAction = function(act) {
 		this.action = act;

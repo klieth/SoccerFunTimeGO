@@ -74,15 +74,19 @@ function playGame() {
 		if(me.y < 600){
 			console.log("down pressed");
 			me.y = me.y + 3;
+			me.dir = 0;
 			me.updatePosition();
 			console.log(me.y);
 		}
 	}
 	if (upPressed) {
-		console.log("down pressed");
-		me.y = me.y - 3;
-		me.updatePosition();
-		console.log(me.y);
+		if(me.y > 0){
+			console.log("down pressed");
+			me.y = me.y - 3;
+			me.dir = 1;
+			me.updatePosition();
+			console.log(me.y);
+		}	
 	}
 }
 
