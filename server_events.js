@@ -1,9 +1,9 @@
 
 var name;
 var delta = 12;
-var animateRate = 33.3333333333;
+var animateRate = 50;
 var moveInterval = 200;
-var ballRate = 500;
+var ballRate = 4;
 var me = new Player();
 
 var field;
