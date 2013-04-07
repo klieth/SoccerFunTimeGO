@@ -18,6 +18,7 @@ $(document).ready(function() {
 	var left = 37;
 	var right = 39;
 	$(window).keydown(function(e) {
+		me.action = "run";
        var key = e.which;
 	   if (key == up) {
 		   upPressed = true;
@@ -30,6 +31,7 @@ $(document).ready(function() {
 	   }
    });
 	$(window).keyup(function(e) {
+		me.action = "stand";
        var key = e.which;
 	   if (key == up) {
 		   upPressed = false;
