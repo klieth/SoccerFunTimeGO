@@ -91,11 +91,9 @@ function move() {
 			me.dir = 4;
 			if (leftPressed){
 				me.dir++;
-				me.fe = false;
 			}
 			else if (rightPressed){
 				me.dir--;
-				me.fe = true;
 			}
 			//console.log(me.y);
 		}
@@ -106,18 +104,15 @@ function move() {
 			me.y = me.y - 3;
 			me.dir = 0;
 			if (rightPressed){
-				me.fe = true;
 				me.dir++;
 			}
 			else if (leftPressed){
-				me.dir = 9;
-				me.fe = false;
+				me.dir = 7;
 			}
 			//console.log(me.y);
 		}	
 	}
 	if (leftPressed && this.dir != -1) {
-		me.fe = false;
 		if(me.x > 0){
 			//console.log("right pressed");
 			me.x = me.x - 3;
@@ -126,7 +121,6 @@ function move() {
 		}	
 	}
 	if (rightPressed && this.dir != -1) {
-		me.fe = true;
 		if(me.x < 980){
 			//console.log("left pressed");
 			me.x = me.x + 3;
