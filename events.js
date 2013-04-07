@@ -88,7 +88,7 @@ function playGame() {
 			console.log(me.y);
 		}	
 	}
-	if (rightPressed) {
+	if (leftPressed) {
 		if(me.x > 0){
 			console.log("right pressed");
 			me.x = me.x - 3;
