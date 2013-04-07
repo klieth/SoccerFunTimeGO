@@ -1,6 +1,6 @@
 
 var name;
-var delta = 20;
+var delta = 6;
 var me = new Player();
 
 var field;
@@ -98,7 +98,8 @@ function animate() {
 		}
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
-	ctx.drawImage(images.ball, ball.x, ball.y);
+	if (ball.VelocityX)
+		ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
 function move() {
@@ -114,14 +115,14 @@ function move() {
 	if (downPressed) {
 		if(me.y < 570){
 			//console.log("down pressed");
-			me.y = me.y + 3;
+			me.y = me.y + delta;
 			me.dir = 4;
 			if (leftPressed){
-				me.x = me.x - 3;
+				me.x = me.x - delta;
 				me.dir++;
 			}
 			else if (rightPressed){
-				me.x = me.x + 3;
+				me.x = me.x + delta;
 				me.dir--;
 			}
 			//console.log(me.y);
@@ -130,14 +131,14 @@ function move() {
 	else if (upPressed) {
 		if(me.y > 0){
 			//console.log("up pressed");
-			me.y = me.y - 3;
+			me.y = me.y - delta;
 			me.dir = 0;
 			if (rightPressed){
-				me.x = me.x + 3;
+				me.x = me.x + delta;
 				me.dir++;
 			}
 			else if (leftPressed){
-				me.x = me.x - 3;
+				me.x = me.x - delta;
 				me.dir = 7;
 			}
 			//console.log(me.y);
@@ -146,7 +147,7 @@ function move() {
 	else if (leftPressed && this.dir == -1) {
 		if(me.x > 0){
 			//console.log("right pressed");
-			me.x = me.x - 3;
+			me.x = me.x - delta;
 			me.dir = 6;
 			//console.log(me.x);
 		}	
@@ -154,7 +155,7 @@ function move() {
 	else if (rightPressed && this.dir == -1) {
 		if(me.x < 980){
 			//console.log("left pressed");
-			me.x = me.x + 3;
+			me.x = me.x + delta;
 			me.dir = 2;
 			//console.log(me.x);
 		}	
@@ -220,8 +221,8 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(animate,50);
-		setInterval(move,100);
+		setInterval(animate,33);
+		setInterval(move,200);
 		setInterval(getDrawData,200);
 	});
 }
