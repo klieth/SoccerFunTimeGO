@@ -132,6 +132,7 @@ function getDrawData() {
 			player.name = p.Name;
 			player.x = p.X;
 			player.y = p.Y;
+			player.action = p.Action;
 			if (p.OnTeamA == false) {
 				red.push(player);
 			} else {
