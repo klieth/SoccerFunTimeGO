@@ -47,20 +47,6 @@ $(document).ready(function() {
 });
 
 function playGame() {
-	var ballImage = new Image();
-	ballImage.src = "ball.png";
-	var redRunningImage = new Image();
-	redRunningImage.src = "red_running.png";
-	var blueRunningImage = new Image();
-	blueRunningImage.src = "blue_running.png";
-	var blueStandingImage = new Image();
-	blueStandingImage.src = "blue_standing.png";
-	var redStandingImage = new Image();
-	redStandingImage.src = "red_standing.png";
-	var blueKickingImage = new Image();
-	blueKickingImage.src = "blue_kicking.png";
-	var redKickingImage = new Image();
-	redKickingImage.src = "red_kicking.png";
 	console.log('images set up');
 	
 	while (true) {
@@ -190,7 +176,29 @@ function login(e){
 	
 }
 
+var images = new Object();
+
 function preload() {
+	loader = new PxLoader();
+	var images = [
+		"ball",
+		"red_running",
+		"blue_running",
+		"red_standing",
+		"blue_standing",
+		"red_kicking",
+		"blue_kicking"
+	];
+	$.each(images, function(i, imgName) {
+		var pxImg = new PxLoaderImage(imgName + ".png");
+		pxImg.name = imgName;
+		loader.add(pxImg);
+	});
+	loader.addProgressListener(function(e) {
+		images[e.resource.name] = e.resource;
+		console.log("Loaded image number " + e.completedCount);
+	});
+	loader.start();
 }
 
 
