@@ -188,6 +188,7 @@ function login(e){
 	else{
 		name = theName[0].value;
 		addUser(name);
+		$("#header_logo").slideUp();
 		$("#login").slideUp();
 		$("#login").fadeOut(200);
 		$("#header").delay(200).fadeIn(200);
