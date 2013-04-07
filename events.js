@@ -46,7 +46,7 @@ $(document).ready(function() {
 function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
-	var estamt = 3;
+	var estamt = 1;
 	$.each(red,function(index,value){
 		//console.log(value.dir);
 		if (value.dir == 2) {
