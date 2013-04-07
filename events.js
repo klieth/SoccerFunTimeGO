@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 function playGame() {
 	
-	ctx.drawImage(images.field, 0, 0);
+	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	// get data
 	getDrawData();
 	console.log(blue);
