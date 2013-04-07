@@ -46,7 +46,7 @@ $(document).ready(function() {
 function animate() {
 	
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
-	var frameamt = 3;
+	var frameamt = 10;
 	$.each(red,function(index,value){
 		if (value.dir == 0) {
 			value.y += frameamt;
