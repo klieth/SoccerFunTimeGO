@@ -189,9 +189,9 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(animate,50);
-		setInterval(move,100);
-		setInterval(getDrawData,200);
+		setInterval(animate,200);
+		setInterval(move,400);
+		setInterval(getDrawData,800);
 	});
 }
 
