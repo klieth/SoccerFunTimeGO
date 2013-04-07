@@ -73,8 +73,17 @@ function animate() {
 	});
 	$.each(blue,function(index,value){
 		//console.log(value.dir);
-		if (value.dir == 6) {
+		if (value.dir == 2 || value.dir == 1 || value.dir || 3) {
+			value.x += estamt;
+		} 
+		if (value.dir == 4 || value.dir == 5 || value.dir == 6){
+			value.y += estamt;
+		}
+		if (value.dir == 6 || value.dir == 7 || value.dir == 8){
 			value.x -= estamt;
+		}
+		if (value.dir == 8 || value.dir == 0 || value.dir == 1){
+			value.y -= estmt;
 		}
 		if (value.action == "run") {
 			ctx.drawImage(images.blue_running, value.x, value.y);
