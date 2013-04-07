@@ -1,0 +1,5 @@
+This is a FastCGI backend written in Go.
+Compile with go build -compiler=gccgo main.go, run and connect
+your server to the FastCGI handler at localhost.
+Also requires mongodb (set db settings in the main function)
+and the mgo package from http://godoc.org/labix.org/v2/mgo
