@@ -48,6 +48,7 @@ function animate() {
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	var frameamt = 10;
 	$.each(red,function(index,value){
+		console.log(value.dir);
 		if (value.dir == 0) {
 			value.y += frameamt;
 		} else if (value.dir == 1) {
@@ -67,6 +68,7 @@ function animate() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	$.each(blue,function(index,value){
+		console.log(value.dir);
 		if (value.dir == 0) {
 			value.y += frameamt;
 		} else if (value.dir == 1) {
