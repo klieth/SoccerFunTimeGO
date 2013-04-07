@@ -20,6 +20,13 @@
  * 		action
  */
 
+/**
+ * Nort 1
+ * south 0
+ * west 2
+ * east 3
+ */
+
 var gameurl = "http://soccerfuntimego.mattcorallo.com/game";
 
 //
@@ -88,7 +95,36 @@ function sendAction(act) {
 // 	}
 //
 function getDrawData() {
-	return getWrapper("all");
+	$.ajax({
+		url:gameurl,
+		data:{
+			cmd:"all"
+		},
+		type:'GET',
+		statusCode: {
+			503: function() {
+				console.log("Server is currently down.");
+			}
+		}
+	}).done(function(data) {
+		//console.log(data);
+		var json = eval( '(' + data + ')');
+		red = new Array();
+		blue = new Array();
+		ball.x = json.ball.x;
+		ball.y = json.ball.y;
+		$.each(json.players, function(i, p) {
+			var player = new Player();
+			player.name = p.Name;
+			player.x = p.X;
+			player.y = p.Y;
+			if (p.OnTeamA == true) {
+				red.push(player);
+			} else {
+				blue.push(player);
+			}
+		});
+	});
 }
 
 //
@@ -96,7 +132,14 @@ function getDrawData() {
 // returns {red:3,blue:4} (JSON created in string on server)
 //
 function getTeamCounts() {
-	getWrapper("teamsize");
+	$.ajax({
+		url:gameurl,
+		data:{
+			cmd:"teamsize"
+		},
+		type:'GET'
+	}).done(function(data) {
+	});
 }
 
 
@@ -132,34 +175,4 @@ var blue = new Array();
 
 
 function getWrapper(command) {
-	$.ajax({
-		url:"http://soccerfuntimego.mattcorallo.com/game",
-		data:{
-			cmd:command
-		},
-		type:'GET',
-		statusCode: {
-			503: function() {
-				console.log("Server is currently down.");
-			}
-		}
-	}).done(function(data) {
-		console.log(data);
-		var json = eval(data);
-		red = new Array();
-		blue = new Array();
-		ball.x = json.ball.x;
-		ball.y = json.ball.y;
-		$.each(json.players, function(i, p) {
-			var player = new Player();
-			player.name = p.Name;
-			player.x = p.X;
-			player.y = p.Y;
-			if (p.OnTeamA == true) {
-				red.push(player);
-			} else {
-				blue.push(player);
-			}
-		});
-	});
 }
