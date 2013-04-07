@@ -47,7 +47,7 @@ function playGame() {
 	
 	// get data
 	getDrawData();
-
+	console.log(blue);
 	$.each(red,function(index,value){
 		if (value.action == "run") {
 			console.log("Red running");
@@ -57,7 +57,7 @@ function playGame() {
 		} else if (value.action == "kick") {
 			ctx.drawImage(images.red_kicking, value.x, value.y);
 		}
-		ctx.fillText(value.id,value.x,value.y-10);
+		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	$.each(blue,function(index,value){
 		if (value.action == "run") {
@@ -67,12 +67,14 @@ function playGame() {
 		} else if (value.action == "kick") {
 			ctx.drawImage(images.blue_kicking, value.x, value.y);
 		}
-		ctx.fillText(value.id,value.x,value.y-10);
+		ctx.fillText(value.name,value.x,value.y-10);
 	});
+	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
 	if (downPressed) {
 		console.log("down pressed");
-		//me.y += 3;
-		//me.updatePosition();
+		me.y = me.y + 3;
+		me.updatePosition();
+		console.log(me.y);
 	}
 }
 

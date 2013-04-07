@@ -45,8 +45,15 @@ function addUser(id) {
 				console.log("Server is currently down.");
 			}
 		}
-	}).done(function() {
+	}).done(function(data) {
+		//console.log(data);
+		data = eval("(" + data + ")");
+		me.x = data.X;
+		me.y = data.Y;
+		me.name = data.Name;
+		me.dir = data.Direction;
 		console.log("User added");
+
 	});
 }
 
@@ -59,7 +66,8 @@ function sendPosition(newX, newY) {
 		data:{
 			cmd:"pos",
 			x: newX,
-			y: newY
+			y: newY,
+			dir: 0
 		},
 		type:'POST',
 		statusCode: {
@@ -67,7 +75,12 @@ function sendPosition(newX, newY) {
 				console.log("Server is currently down.");
 			}
 		}
-	}).done(function() {});
+	}).done(function(data) {
+		console.log(data);
+		data = eval("(" + data + ")");
+		me.x = data.X;
+		me.y = data.Y;
+	});
 }
 
 //
@@ -118,7 +131,7 @@ function getDrawData() {
 			player.name = p.Name;
 			player.x = p.X;
 			player.y = p.Y;
-			if (p.OnTeamA == true) {
+			if (p.OnTeamA == false) {
 				red.push(player);
 			} else {
 				blue.push(player);
@@ -146,11 +159,11 @@ function getTeamCounts() {
 
 
 function Player() {
-	var name;
-	var x;
-	var y;
-	var action = "stand";
-	var dir;
+	this.name;
+	this.x;
+	this.y;
+	this.action = "stand";
+	this.dir;
 	this.updatePosition = function() {
 		sendPosition(this.x,this.y);
 	}
@@ -161,9 +174,9 @@ function Player() {
 }
 
 function Ball() {
-	var x;
-	var y;
-	var dir;
+	var x = 500;
+	var y = 300;
+	this.dir;
 }
 
 
