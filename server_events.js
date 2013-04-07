@@ -38,7 +38,9 @@ function animate() {
 			}
 		}
 
-		if (value.action == "run") {
+		if (value.fireball) {
+			ctx.drawImage(images.kaboom, value.x, value.y);
+		} else if (value.action == "run") {
 			ctx.drawImage(images.red_running, value.x, value.y);
 		} else if (value.action == "stand") {
 			ctx.drawImage(images.red_standing, value.x, value.y);
@@ -63,7 +65,9 @@ function animate() {
 				value.y -= estamt;
 			}
 		}
-		if (value.action == "run") {
+		if (value.fireball) {
+			ctx.drawImage(images.kaboom, value.x, value.y);
+		} else if (value.action == "run") {
 			ctx.drawImage(images.blue_running, value.x, value.y);
 		} else if (value.action == "stand") {
 			ctx.drawImage(images.blue_standing, value.x, value.y);
