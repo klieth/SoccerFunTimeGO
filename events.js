@@ -45,6 +45,7 @@ $(document).ready(function() {
 
 function playGame() {
 	
+	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	// get data
 	getDrawData();
 	//console.log(blue);
@@ -112,13 +113,7 @@ function canvasDraw(){
 	field = document.getElementById("field");
 	ctx = field.getContext('2d');
 	console.log('canvas set up');
-	var fieldImage = new Image();
-	fieldImage.src = "field.png";
-	console.log('image set up');
 	$('canvas').attr('width', '1000').attr('height', '600');
-	fieldImage.onload = function(){
-		ctx.drawImage(fieldImage, 0, 0, 1000, 600);
-	}
 }
 
 function login(e){
@@ -148,6 +143,7 @@ var images = new Object();
 function preload() {
 	loader = new PxLoader();
 	var imagenames = [
+		"field",
 		"ball",
 		"red_running",
 		"blue_running",
