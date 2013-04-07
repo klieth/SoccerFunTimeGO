@@ -77,69 +77,6 @@ function animate() {
 	ctx.drawImage(images.ball, ball.x, ball.y);
 }
 
-function move() {
-	if (downPressed || upPressed || rightPressed || leftPressed){
-		me.action = "run";
-		sendAction(me.action);
-	} else {
-		me.action = "stand";
-		sendAction(me.action);
-	}
-	this.dir = -1;
-	//console.log(me);
-	if (downPressed) {
-		if(me.y < 570){
-			//console.log("down pressed");
-			me.y = me.y + delta;
-			me.dir = 4;
-			if (leftPressed){
-				me.x = me.x - delta;
-				me.dir++;
-			}
-			else if (rightPressed){
-				me.x = me.x + delta;
-				me.dir--;
-			}
-			//console.log(me.y);
-		}
-	}
-	else if (upPressed) {
-		if(me.y > 0){
-			//console.log("up pressed");
-			me.y = me.y - delta;
-			me.dir = 0;
-			if (rightPressed){
-				me.x = me.x + delta;
-				me.dir++;
-			}
-			else if (leftPressed){
-				me.x = me.x - delta;
-				me.dir = 7;
-			}
-			//console.log(me.y);
-		}	
-	}
-	else if (leftPressed && this.dir == -1) {
-		if(me.x > 0){
-			//console.log("right pressed");
-			me.x = me.x - delta;
-			me.dir = 6;
-			//console.log(me.x);
-		}	
-	}
-	else if (rightPressed && this.dir == -1) {
-		if(me.x < 980){
-			//console.log("left pressed");
-			me.x = me.x + delta;
-			me.dir = 2;
-			//console.log(me.x);
-		}	
-	} else {
-		me.dir = -1;
-	}
-	me.updatePosition();
-}
-
 function canvasDraw(){
 	console.log('canvas draw started');
 	field = document.getElementById("field");
