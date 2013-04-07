@@ -140,7 +140,7 @@ function login(e){
 		alert("Please Type a Name, GO!");
 	}
 	else{
-		name = theName.value;
+		name = theName[0].value;
 		addUser(name);
 		$("#login").slideUp();
 		$("#login").fadeOut(200);
