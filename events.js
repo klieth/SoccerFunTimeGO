@@ -170,7 +170,7 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(playGame,1000);
+		setInterval(playGame,100);
 	});
 }
 
