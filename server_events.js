@@ -187,7 +187,7 @@ function preload() {
 	loader.start();
 	loader.addCompletionListener(function(e) {
 		setInterval(animate,animateRate);
-		setInterval(move,moveInterval);
+		setInterval(getDrawData,moveInterval);
 		//setInterval(getDrawData,200);
 	});
 }
