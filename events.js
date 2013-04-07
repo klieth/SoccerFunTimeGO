@@ -135,6 +135,8 @@ function move() {
 			me.dir = 2;
 			//console.log(me.x);
 		}	
+	} else {
+		me.dir = -1;
 	}
 	me.updatePosition();
 }
