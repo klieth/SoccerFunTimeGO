@@ -181,7 +181,7 @@ var images = new Object();
 
 function preload() {
 	loader = new PxLoader();
-	var images = [
+	var imagenames = [
 		"ball",
 		"red_running",
 		"blue_running",
@@ -190,7 +190,7 @@ function preload() {
 		"red_kicking",
 		"blue_kicking"
 	];
-	$.each(images, function(i, imgName) {
+	$.each(imagenames, function(i, imgName) {
 		var pxImg = new PxLoaderImage(imgName + ".png");
 		pxImg.name = imgName;
 		loader.add(pxImg);
