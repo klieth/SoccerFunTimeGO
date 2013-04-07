@@ -71,10 +71,20 @@ function playGame() {
 	});
 	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
 	if (downPressed) {
+		if(y < 600){
+			console.log("down pressed");
+			me.y = me.y + 3;
+			me.updatePosition();
+			console.log(me.y);
+		}
+	}
+	if (upPressed) {
 		console.log("down pressed");
-		me.y = me.y + 3;
-		me.updatePosition();
-		console.log(me.y);
+		if (me.y > 0){
+			me.y = me.y - 3;
+			me.updatePosition();
+			console.log(me.y);
+		}
 	}
 }
 
