@@ -47,6 +47,23 @@ $(document).ready(function() {
 });
 
 function playGame() {
+	var ballImage = new Image();
+	ballImage.src = "ball.png";
+	var redRunningImage = new Image();
+	redRunningImage.src = "red_running.png";
+	redRunningImage.onload = 
+	var blueRunningImage = new Image();
+	blueRunningImage.src = "blue_running.png";
+	var blueStandingImage = new Image();
+	blueStandingImage.src = "blue_standing.png";
+	var redStandingImage = new Image();
+	redStandingImage.src = "red_standing.png";
+	var blueKickingImage = new Image();
+	blueKickingImage.src = "blue_kicking.png";
+	var redKickingImage = new Image();
+	redKickingImage.src = "red_kicking.png";
+	console.log('images set up');
+	
 	while (true) {
 		// get data
 		// var json = getDrawData();
@@ -94,6 +111,25 @@ function playGame() {
 				newPlayer.y = item.y;
 				blue.push(newPlayer);
 			}
+		});
+		
+		$.each(json.red,function(index,value){
+			if (value.action == "run")
+				ctx.drawImage(redRunningImage, value.x, value.y);
+			else if (value.action == "stand")
+				ctx.drawImage(redStandingImage, value.x, value.y);
+			else if (value.action == "kick")
+				ctx.drawImage(redkickingImage, value.x, value.y);
+			ctx.fillText(value.id,value.x,value.y-10);
+		});
+		$.each(json.blue,function(index,value){
+			if (value.action == "run")
+				ctx.drawImage(blueRunningImage, value.x, value.y);
+			else if (value.action == "stand")
+				ctx.drawImage(blueStandingImage, value.x, value.y);
+			else if (value.action == "kick")
+				ctx.drawImage(bluekickingImage, value.x, value.y);
+			ctx.fillText(value.id,value.x,value.y-10);
 		});
 		// update all positions
 		// draw to screen
