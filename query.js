@@ -155,6 +155,7 @@ function getDrawData() {
 			player.y = p.Y;
 			player.action = p.Action;
 			player.dir = p.Direction;
+			player.fireball = p.Fireball;
 			//console.log(player.dir);
 			if (p.OnTeamA == false) {
 				red.push(player);
@@ -192,6 +193,7 @@ function Player() {
 	this.y;
 	this.action = "stand";
 	this.dir;
+	this.fireball;
 	this.updatePosition = function() {
 		//sendPosition(this.x,this.y);
 		sendPosition(this.x, this.y, this.dir);
@@ -218,6 +220,3 @@ var red = new Array();
 var blue = new Array();
 
 
-
-function getWrapper(command) {
-}
