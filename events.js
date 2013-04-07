@@ -173,6 +173,7 @@ function canvasDraw(){
 	field = document.getElementById("field");
 	ctx = field.getContext('2d');
 	$('canvas').attr('width', '1000').attr('height', '600');
+	ctx.font("30pt arial");
 }
 
 function login(e){
