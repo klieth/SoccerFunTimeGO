@@ -149,6 +149,8 @@ function getDrawData() {
 				blue.push(player);
 			}
 		});
+		redScore = json.score.TeamAScore;
+		blueScore = json.score.TeamBScore;
 	});
 }
 
@@ -195,6 +197,8 @@ function Ball() {
 }
 
 
+var redScore = 0;
+var blueScore = 0;
 
 var ball = new Ball();
 var red = new Array();
