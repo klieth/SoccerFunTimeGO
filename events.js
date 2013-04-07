@@ -56,7 +56,6 @@ function animate() {
 	ctx.drawImage(images.field, 0, 0, 1000, 600);
 	var estamt = delta/(moveInterval/animateRate);
 	$.each(red,function(index,value){
-		console.log(value.dir);
 		if (value.dir != -1){
 			if (value.dir == 2 || value.dir == 1 || value.dir == 3) {
 				value.x += estamt;
@@ -82,7 +81,6 @@ function animate() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	$.each(blue,function(index,value){
-		//console.log(value.dir);
 		if (value.dir != -1){
 			if (value.dir == 2 || value.dir == 1 || value.dir == 3) {
 				value.x += estamt;
@@ -111,6 +109,7 @@ function animate() {
 	ball.x += ball.dx / ballRate;
 	ball.y += ball.dy / ballRate;
 	ctx.drawImage(images.ball, ball.x, ball.y);
+	ctx.fillText("SCORE: "   + redScore + "---" + blueScore, 400, 50);
 }
 
 function move() {
@@ -125,10 +124,8 @@ function move() {
 		sendKick();
 	}
 	this.dir = -1;
-	//console.log(me);
 	if (downPressed) {
 		if(me.y < 570){
-			//console.log("down pressed");
 			me.y = me.y + delta;
 			me.dir = 4;
 			if (leftPressed){
@@ -139,12 +136,10 @@ function move() {
 				me.x = me.x + delta;
 				me.dir--;
 			}
-			//console.log(me.y);
 		}
 	}
 	else if (upPressed) {
 		if(me.y > 0){
-			//console.log("up pressed");
 			me.y = me.y - delta;
 			me.dir = 0;
 			if (rightPressed){
@@ -155,23 +150,18 @@ function move() {
 				me.x = me.x - delta;
 				me.dir = 7;
 			}
-			//console.log(me.y);
 		}	
 	}
 	else if (leftPressed && this.dir == -1) {
 		if(me.x > 0){
-			//console.log("right pressed");
 			me.x = me.x - delta;
 			me.dir = 6;
-			//console.log(me.x);
 		}	
 	}
 	else if (rightPressed && this.dir == -1) {
 		if(me.x < 980){
-			//console.log("left pressed");
 			me.x = me.x + delta;
 			me.dir = 2;
-			//console.log(me.x);
 		}	
 	} else {
 		me.dir = -1;
@@ -180,38 +170,32 @@ function move() {
 }
 
 function canvasDraw(){
-	console.log('canvas draw started');
 	field = document.getElementById("field");
 	ctx = field.getContext('2d');
-	console.log('canvas set up');
 	$('canvas').attr('width', '1000').attr('height', '600');
+	ctx.font="15pt Arial";
 }
 
 function login(e){
 	e.stopPropagation();
 	e.preventDefault();
-	var cookie = getCookie("Player");
-	if (cookie == null){
-		var theName = $('#loginForm').serializeArray();
-		if (theName[0].value == ""){
-			alert("Please Type a Name, GO!");
-		}
-		else{
-			name = theName[0].value;
-			addUser(name);
-			$("#login").slideUp();
-			$("#login").fadeOut(200);
-			$("#header").delay(200).fadeIn(200);
-			$("#field").animate({opacity: '100%'}, 200, 'swing', function() {
-	    		$("#field").css('display', 'block');
-			});
-			canvasDraw();
-		}
-		preload();
-	} else {
-		
+	var theName = $('#loginForm').serializeArray();
+	if (theName[0].value == ""){
+		alert("Please Type a Name, GO!");
 	}
-	
+	else{
+		name = theName[0].value;
+		addUser(name);
+		$("#login").slideUp();
+		$("#login").fadeOut(200);
+		$("#header").delay(200).fadeIn(200);
+		$("#field").animate({opacity: '100%'}, 200, 'swing', function() {
+			$("#field").css('display', 'block');
+		});
+		canvasDraw();
+	}
+
+	preload();
 }
 
 var images = new Object();
@@ -234,9 +218,7 @@ function preload() {
 		loader.add(pxImg);
 	});
 	loader.addProgressListener(function(e) {
-		//console.log(e.resource.img);
 		images[e.resource.name] = e.resource.img;
-		console.log("Loaded image number " + e.completedCount);
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {

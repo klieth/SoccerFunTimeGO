@@ -77,6 +77,7 @@ function animate() {
 	ball.x += ball.dx / ballRate;
 	ball.y += ball.dy / ballRate;
 	ctx.drawImage(images.ball, ball.x, ball.y);
+	ctx.fillText("SCORE: "   + redScore + "---" + blueScore, 400, 50);
 }
 
 function canvasDraw(){
@@ -85,6 +86,7 @@ function canvasDraw(){
 	ctx = field.getContext('2d');
 	console.log('canvas set up');
 	$('canvas').attr('width', '1000').attr('height', '600');
+	ctx.font="15pt Arial";
 }
 
 function login(){

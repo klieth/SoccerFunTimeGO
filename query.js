@@ -100,7 +100,20 @@ function sendKick() {
 		},
 		type:'POST'
 	}).done(function(data) {
-		// returns the action so that we can change to kick animation
+		var json = eval( '(' + data + ')' );
+		$.each(red, function(i, p) {
+			if (p.name == json.Name) {
+				p.action = "kick";
+				return;
+			}
+		});
+		$.each(blue, function(i, p) {
+			if (p.name == json.Name) {
+				p.action = "kick";
+				return;
+			}
+		});
+		json.Name;
 	});
 }
 
@@ -149,6 +162,8 @@ function getDrawData() {
 				blue.push(player);
 			}
 		});
+		redScore = json.score.TeamBScore;
+		blueScore = json.score.TeamAScore;
 	});
 }
 
@@ -195,6 +210,8 @@ function Ball() {
 }
 
 
+var redScore = 0;
+var blueScore = 0;
 
 var ball = new Ball();
 var red = new Array();
