@@ -51,7 +51,6 @@ function playGame() {
 	ballImage.src = "ball.png";
 	var redRunningImage = new Image();
 	redRunningImage.src = "red_running.png";
-	redRunningImage.onload = 
 	var blueRunningImage = new Image();
 	blueRunningImage.src = "blue_running.png";
 	var blueStandingImage = new Image();
