@@ -71,7 +71,7 @@ function playGame() {
 	});
 	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
 	if (downPressed) {
-		if(me.y < 600){
+		if(me.y < 570){
 			console.log("down pressed");
 			me.y = me.y + 3;
 			me.dir = 0;
@@ -98,7 +98,7 @@ function playGame() {
 		}	
 	}
 	if (rightPressed) {
-		if(me.x < 100){
+		if(me.x < 1000){
 			console.log("left pressed");
 			me.x = me.x + 3;
 			me.dir = 2;
@@ -106,6 +106,7 @@ function playGame() {
 			console.log(me.x);
 		}	
 	}
+
 }
 
 function canvasDraw(){
