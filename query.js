@@ -92,6 +92,18 @@ function sendAction(act) {
 	}).done(function() {});
 }
 
+function sendKick() {
+	$.ajax({
+		url:gameurl,
+		data: {
+			cmd:"kick"
+		},
+		type:'POST'
+	}).done(function(data) {
+		// returns the action so that we can change to kick animation
+	});
+}
+
 
 //
 // Gets a current snapshot of the game
