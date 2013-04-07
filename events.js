@@ -75,7 +75,6 @@ function animate() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
-	console.log(me);
 }
 
 function move() {
