@@ -126,13 +126,16 @@ function getDrawData() {
 		var json = eval( '(' + data + ')');
 		red = new Array();
 		blue = new Array();
-		ball.x = json.ball.x;
-		ball.y = json.ball.y;
+		ball.x = json.ball.X;
+		ball.y = json.ball.Y;
+		ball.dx = json.ball.VelocityX;
+		ball.dy = json.ball.VelocityY;
 		$.each(json.players, function(i, p) {
 			var player = new Player();
 			player.name = p.Name;
 			player.x = p.X;
 			player.y = p.Y;
+			player.action = p.Action;
 			if (p.OnTeamA == false) {
 				red.push(player);
 			} else {
@@ -179,9 +182,10 @@ function Player() {
 }
 
 function Ball() {
-	var x = 500;
-	var y = 300;
-	this.dir;
+	this.x = 500;
+	this.y = 300;
+	this.dx;
+	this.dy;
 }
 
 
