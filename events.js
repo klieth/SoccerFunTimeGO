@@ -109,7 +109,7 @@ function animate() {
 	ball.x += ball.dx / ballRate;
 	ball.y += ball.dy / ballRate;
 	ctx.drawImage(images.ball, ball.x, ball.y);
-	ctx.fillText(redScore + ":" + blueScore, 450, 270);
+	ctx.fillText("SCORE: " + redScore + ":" + blueScore, 400, 40);
 }
 
 function move() {
