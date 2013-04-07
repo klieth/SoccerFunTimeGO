@@ -111,7 +111,7 @@ function move() {
 			//console.log(me.y);
 		}	
 	}
-	if (leftPressed && this.dir != -1) {
+	if (leftPressed && this.dir == -1) {
 		if(me.x > 0){
 			//console.log("right pressed");
 			me.x = me.x - 3;
@@ -119,7 +119,7 @@ function move() {
 			//console.log(me.x);
 		}	
 	}
-	if (rightPressed && this.dir != -1) {
+	if (rightPressed && this.dir == -1) {
 		if(me.x < 980){
 			//console.log("left pressed");
 			me.x = me.x + 3;
