@@ -47,7 +47,7 @@ function playGame() {
 	
 	// get data
 	getDrawData();
-	console.log(blue);
+	//console.log(blue);
 	$.each(red,function(index,value){
 		if (value.action == "run") {
 			console.log("Red running");
@@ -70,40 +70,41 @@ function playGame() {
 		ctx.fillText(value.name,value.x,value.y-10);
 	});
 	ctx.drawImage(images.ball, images.ball.x, images.ball.y);
+
 	if (downPressed) {
 		if(me.y < 570){
-			console.log("down pressed");
+			//console.log("down pressed");
 			me.y = me.y + 3;
 			me.dir = 0;
 			me.updatePosition();
-			console.log(me.y);
+			//console.log(me.y);
 		}
 	}
 	if (upPressed) {
 		if(me.y > 0){
-			console.log("up pressed");
+			//console.log("up pressed");
 			me.y = me.y - 3;
 			me.dir = 1;
 			me.updatePosition();
-			console.log(me.y);
+			//console.log(me.y);
 		}	
 	}
 	if (leftPressed) {
 		if(me.x > 0){
-			console.log("right pressed");
+			//console.log("right pressed");
 			me.x = me.x - 3;
 			me.dir = 3;
 			me.updatePosition();
-			console.log(me.x);
+			//console.log(me.x);
 		}	
 	}
 	if (rightPressed) {
 		if(me.x < 1000){
-			console.log("left pressed");
+			//console.log("left pressed");
 			me.x = me.x + 3;
 			me.dir = 2;
 			me.updatePosition();
-			console.log(me.x);
+			//console.log(me.x);
 		}	
 	}
 
@@ -170,7 +171,7 @@ function preload() {
 	});
 	loader.start();
 	loader.addCompletionListener(function(e) {
-		setInterval(playGame,100);
+		setInterval(playGame,50);
 	});
 }
 
