@@ -80,11 +80,9 @@ function playGame() {
 	}
 	if (upPressed) {
 		console.log("down pressed");
-		if (me.y > 0){
-			me.y = me.y - 3;
-			me.updatePosition();
-			console.log(me.y);
-		}
+		me.y = me.y - 3;
+		me.updatePosition();
+		console.log(me.y);
 	}
 }
 

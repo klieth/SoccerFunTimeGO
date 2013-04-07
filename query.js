@@ -165,7 +165,8 @@ function Player() {
 	this.action = "stand";
 	this.dir;
 	this.updatePosition = function() {
-		sendPosition(this.x,this.y);
+		//sendPosition(this.x,this.y);
+		sendPosition(1,0);
 	}
 	this.updateAction = function(act) {
 		this.action = act;
