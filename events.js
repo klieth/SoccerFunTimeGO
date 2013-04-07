@@ -53,7 +53,7 @@ function playGame() {
 		if (value.action == "run") {
 			console.log("Red running");
 			ctx.drawImage(images.red_running, value.x, value.y);
-		} else if (value.action == "stand") {log
+		} else if (value.action == "stand") {
 			ctx.drawImage(images.red_standing, value.x, value.y);
 		} else if (value.action == "kick") {
 			ctx.drawImage(images.red_kicking, value.x, value.y);
