@@ -5,6 +5,7 @@
  * POST
  * adduser -- adds user with id (default position, team, etc set on server)
  * pos -- sets the position (id sent as cookie)
+ * action -- set the current action
  *
  * GET
  * all -- returns all data
@@ -95,15 +96,38 @@ function getDrawData() {
 // returns {red:3,blue:4} (JSON created in string on server)
 //
 function getTeamCounts() {
-	return getWrapper("teamsize");
+	getWrapper("teamsize");
 }
 
 
 
 
+function Player() {
+	var name;
+	var x;
+	var y;
+	var action = "stand";
+	var dir;
+	this.updatePosition = function() {
+		sendPosition(this.x,this.y);
+	}
+	this.updateAction = function(act) {
+		this.action = act;
+		sendPlayerActionUpdate(this.action);
+	}
+}
+
+function Ball() {
+	var x;
+	var y;
+	var dir;
+}
 
 
 
+var ball = new Ball();
+var red = new Array();
+var blue = new Array();
 
 
 
@@ -119,7 +143,23 @@ function getWrapper(command) {
 				console.log("Server is currently down.");
 			}
 		}
-	}).done(function() {
-		console.log("Request completed");
+	}).done(function(data) {
+		console.log(data);
+		var json = eval(data);
+		red = new Array();
+		blue = new Array();
+		ball.x = json.ball.x;
+		ball.y = json.ball.y;
+		$.each(json.players, function(i, p) {
+			var player = new Player();
+			player.name = p.Name;
+			player.x = p.X;
+			player.y = p.Y;
+			if (p.OnTeamA == true) {
+				red.push(player);
+			} else {
+				blue.push(player);
+			}
+		});
 	});
 }
