@@ -100,7 +100,7 @@ function playGame() {
 		
 		$.each(json.red,function(index,value){
 			if (value.action == "run"){
-				console.log(images.red_running);
+				console.log(images['red_running']);
 				ctx.drawImage(images.red_running, value.x, value.y);
 			}
 			else if (value.action == "stand")
