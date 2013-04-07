@@ -99,21 +99,23 @@ function playGame() {
 		});
 		
 		$.each(json.red,function(index,value){
-			if (value.action == "run")
-				ctx.drawImage(redRunningImage, value.x, value.y);
+			if (value.action == "run"){
+				console.log(images.red_running);
+				ctx.drawImage(images.red_running, value.x, value.y);
+			}
 			else if (value.action == "stand")
-				ctx.drawImage(redStandingImage, value.x, value.y);
+				ctx.drawImage(images.red_standing, value.x, value.y);
 			else if (value.action == "kick")
-				ctx.drawImage(redkickingImage, value.x, value.y);
+				ctx.drawImage(images.red_kicking, value.x, value.y);
 			ctx.fillText(value.id,value.x,value.y-10);
 		});
 		$.each(json.blue,function(index,value){
 			if (value.action == "run")
-				ctx.drawImage(blueRunningImage, value.x, value.y);
+				ctx.drawImage(images.blue_running, value.x, value.y);
 			else if (value.action == "stand")
-				ctx.drawImage(blueStandingImage, value.x, value.y);
+				ctx.drawImage(images.blue_standing, value.x, value.y);
 			else if (value.action == "kick")
-				ctx.drawImage(bluekickingImage, value.x, value.y);
+				ctx.drawImage(images.blue_kicking, value.x, value.y);
 			ctx.fillText(value.id,value.x,value.y-10);
 		});
 		// update all positions
@@ -195,7 +197,8 @@ function preload() {
 		loader.add(pxImg);
 	});
 	loader.addProgressListener(function(e) {
-		images[e.resource.name] = e.resource;
+		//console.log(e.resource.img);
+		images[e.resource.name] = e.resource.img;
 		console.log("Loaded image number " + e.completedCount);
 	});
 	loader.start();
